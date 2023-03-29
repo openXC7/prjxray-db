@@ -1,9 +1,9 @@
 type,count
-nodes,2663055
+nodes,6124690
 package_pins,676
-pips,29424910
-site_pins,740913
-site_pips,1505860
-sites,20251
-tiles,24453
-wires,8339126
+pips,67256102
+site_pins,1761297
+site_pips,3704892
+sites,46697
+tiles,49590
+wires,18471828
