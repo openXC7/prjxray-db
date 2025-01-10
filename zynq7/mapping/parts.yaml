@@ -46,3 +46,275 @@ xc7z020clg484-3:
   device: xc7z020
   package: clg484
   speedgrade: '3'
+xc7z030fbg484-1:
+  device: xc7z030
+  package: fbg484
+  speedgrade: '1'
+xc7z030fbg484-2:
+  device: xc7z030
+  package: fbg484
+  speedgrade: '2'
+xc7z030fbg484-3:
+  device: xc7z030
+  package: fbg484
+  speedgrade: '3'
+xc7z030fbg676-1:
+  device: xc7z030
+  package: fbg676
+  speedgrade: '1'
+xc7z030fbg676-2:
+  device: xc7z030
+  package: fbg676
+  speedgrade: '2'
+xc7z030fbg676-3:
+  device: xc7z030
+  package: fbg676
+  speedgrade: '3'
+xc7z030fbv484-1:
+  device: xc7z030
+  package: fbv484
+  speedgrade: '1'
+xc7z030fbv484-2:
+  device: xc7z030
+  package: fbv484
+  speedgrade: '2'
+xc7z030fbv484-3:
+  device: xc7z030
+  package: fbv484
+  speedgrade: '3'
+xc7z030fbv676-1:
+  device: xc7z030
+  package: fbv676
+  speedgrade: '1'
+xc7z030fbv676-2:
+  device: xc7z030
+  package: fbv676
+  speedgrade: '2'
+xc7z030fbv676-3:
+  device: xc7z030
+  package: fbv676
+  speedgrade: '3'
+xc7z030ffg676-1:
+  device: xc7z030
+  package: ffg676
+  speedgrade: '1'
+xc7z030ffg676-2:
+  device: xc7z030
+  package: ffg676
+  speedgrade: '2'
+xc7z030ffg676-3:
+  device: xc7z030
+  package: ffg676
+  speedgrade: '3'
+xc7z030ffv676-1:
+  device: xc7z030
+  package: ffv676
+  speedgrade: '1'
+xc7z030ffv676-2:
+  device: xc7z030
+  package: ffv676
+  speedgrade: '2'
+xc7z030ffv676-3:
+  device: xc7z030
+  package: ffv676
+  speedgrade: '3'
+xc7z030sbg485-1:
+  device: xc7z030
+  package: sbg485
+  speedgrade: '1'
+xc7z030sbg485-2:
+  device: xc7z030
+  package: sbg485
+  speedgrade: '2'
+xc7z030sbg485-3:
+  device: xc7z030
+  package: sbg485
+  speedgrade: '3'
+xc7z030sbv485-1:
+  device: xc7z030
+  package: sbv485
+  speedgrade: '1'
+xc7z030sbv485-2:
+  device: xc7z030
+  package: sbv485
+  speedgrade: '2'
+xc7z030sbv485-3:
+  device: xc7z030
+  package: sbv485
+  speedgrade: '3'
+xc7z035fbg676-1:
+  device: xc7z035
+  package: fbg676
+  speedgrade: '1'
+xc7z035fbg676-2:
+  device: xc7z035
+  package: fbg676
+  speedgrade: '2'
+xc7z035fbg676-3:
+  device: xc7z035
+  package: fbg676
+  speedgrade: '3'
+xc7z035fbv676-1:
+  device: xc7z035
+  package: fbv676
+  speedgrade: '1'
+xc7z035fbv676-2:
+  device: xc7z035
+  package: fbv676
+  speedgrade: '2'
+xc7z035fbv676-3:
+  device: xc7z035
+  package: fbv676
+  speedgrade: '3'
+xc7z035ffg676-1:
+  device: xc7z035
+  package: ffg676
+  speedgrade: '1'
+xc7z035ffg676-2:
+  device: xc7z035
+  package: ffg676
+  speedgrade: '2'
+xc7z035ffg676-3:
+  device: xc7z035
+  package: ffg676
+  speedgrade: '3'
+xc7z035ffg900-1:
+  device: xc7z035
+  package: ffg900
+  speedgrade: '1'
+xc7z035ffg900-2:
+  device: xc7z035
+  package: ffg900
+  speedgrade: '2'
+xc7z035ffg900-3:
+  device: xc7z035
+  package: ffg900
+  speedgrade: '3'
+xc7z035ffv676-1:
+  device: xc7z035
+  package: ffv676
+  speedgrade: '1'
+xc7z035ffv676-2:
+  device: xc7z035
+  package: ffv676
+  speedgrade: '2'
+xc7z035ffv676-3:
+  device: xc7z035
+  package: ffv676
+  speedgrade: '3'
+xc7z035ffv900-1:
+  device: xc7z035
+  package: ffv900
+  speedgrade: '1'
+xc7z035ffv900-2:
+  device: xc7z035
+  package: ffv900
+  speedgrade: '2'
+xc7z035ffv900-3:
+  device: xc7z035
+  package: ffv900
+  speedgrade: '3'
+xc7z045fbg676-1:
+  device: xc7z045
+  package: fbg676
+  speedgrade: '1'
+xc7z045fbg676-2:
+  device: xc7z045
+  package: fbg676
+  speedgrade: '2'
+xc7z045fbg676-3:
+  device: xc7z045
+  package: fbg676
+  speedgrade: '3'
+xc7z045fbv676-1:
+  device: xc7z045
+  package: fbv676
+  speedgrade: '1'
+xc7z045fbv676-2:
+  device: xc7z045
+  package: fbv676
+  speedgrade: '2'
+xc7z045fbv676-3:
+  device: xc7z045
+  package: fbv676
+  speedgrade: '3'
+xc7z045ffg676-1:
+  device: xc7z045
+  package: ffg676
+  speedgrade: '1'
+xc7z045ffg676-2:
+  device: xc7z045
+  package: ffg676
+  speedgrade: '2'
+xc7z045ffg676-3:
+  device: xc7z045
+  package: ffg676
+  speedgrade: '3'
+xc7z045ffg900-1:
+  device: xc7z045
+  package: ffg900
+  speedgrade: '1'
+xc7z045ffg900-2:
+  device: xc7z045
+  package: ffg900
+  speedgrade: '2'
+xc7z045ffg900-3:
+  device: xc7z045
+  package: ffg900
+  speedgrade: '3'
+xc7z045ffv676-1:
+  device: xc7z045
+  package: ffv676
+  speedgrade: '1'
+xc7z045ffv676-2:
+  device: xc7z045
+  package: ffv676
+  speedgrade: '2'
+xc7z045ffv676-3:
+  device: xc7z045
+  package: ffv676
+  speedgrade: '3'
+xc7z045ffv900-1:
+  device: xc7z045
+  package: ffv900
+  speedgrade: '1'
+xc7z045ffv900-2:
+  device: xc7z045
+  package: ffv900
+  speedgrade: '2'
+xc7z045ffv900-3:
+  device: xc7z045
+  package: ffv900
+  speedgrade: '3'
+xc7z100ffg1156-1:
+  device: xc7z100
+  package: ffg1156
+  speedgrade: '1'
+xc7z100ffg1156-2:
+  device: xc7z100
+  package: ffg1156
+  speedgrade: '2'
+xc7z100ffg900-1:
+  device: xc7z100
+  package: ffg900
+  speedgrade: '1'
+xc7z100ffg900-2:
+  device: xc7z100
+  package: ffg900
+  speedgrade: '2'
+xc7z100ffv1156-1:
+  device: xc7z100
+  package: ffv1156
+  speedgrade: '1'
+xc7z100ffv1156-2:
+  device: xc7z100
+  package: ffv1156
+  speedgrade: '2'
+xc7z100ffv900-1:
+  device: xc7z100
+  package: ffv900
+  speedgrade: '1'
+xc7z100ffv900-2:
+  device: xc7z100
+  package: ffv900
+  speedgrade: '2'
