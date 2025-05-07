@@ -6829,7 +6829,7 @@
                 }
             },
             "type": "BUFR",
-            "x_coord": 0,
+            "x_coord": 1,
             "y_coord": 0
         },
         {
@@ -6908,7 +6908,7 @@
                 }
             },
             "type": "IDELAYCTRL",
-            "x_coord": 0,
+            "x_coord": 3,
             "y_coord": 0
         },
         {
@@ -6986,7 +6986,7 @@
                 }
             },
             "type": "BUFR",
-            "x_coord": 0,
+            "x_coord": 1,
             "y_coord": 1
         },
         {
@@ -7064,7 +7064,7 @@
                 }
             },
             "type": "BUFR",
-            "x_coord": 0,
+            "x_coord": 1,
             "y_coord": 2
         },
         {
@@ -7142,7 +7142,7 @@
                 }
             },
             "type": "BUFR",
-            "x_coord": 0,
+            "x_coord": 1,
             "y_coord": 3
         }
     ],
