@@ -1,0 +1,80 @@
+xc7vx485tffg1157-1:
+  device: xc7vx485t
+  package: ffg1157
+  speedgrade: '1'
+xc7vx485tffg1157-2:
+  device: xc7vx485t
+  package: ffg1157
+  speedgrade: '2'
+xc7vx485tffg1157-2L:
+  device: xc7vx485t
+  package: ffg1157
+  speedgrade: 2L
+xc7vx485tffg1157-3:
+  device: xc7vx485t
+  package: ffg1157
+  speedgrade: '3'
+xc7vx485tffg1158-1:
+  device: xc7vx485t
+  package: ffg1158
+  speedgrade: '1'
+xc7vx485tffg1158-2:
+  device: xc7vx485t
+  package: ffg1158
+  speedgrade: '2'
+xc7vx485tffg1158-2L:
+  device: xc7vx485t
+  package: ffg1158
+  speedgrade: 2L
+xc7vx485tffg1158-3:
+  device: xc7vx485t
+  package: ffg1158
+  speedgrade: '3'
+xc7vx485tffg1761-1:
+  device: xc7vx485t
+  package: ffg1761
+  speedgrade: '1'
+xc7vx485tffg1761-2:
+  device: xc7vx485t
+  package: ffg1761
+  speedgrade: '2'
+xc7vx485tffg1761-2L:
+  device: xc7vx485t
+  package: ffg1761
+  speedgrade: 2L
+xc7vx485tffg1761-3:
+  device: xc7vx485t
+  package: ffg1761
+  speedgrade: '3'
+xc7vx485tffg1927-1:
+  device: xc7vx485t
+  package: ffg1927
+  speedgrade: '1'
+xc7vx485tffg1927-2:
+  device: xc7vx485t
+  package: ffg1927
+  speedgrade: '2'
+xc7vx485tffg1927-2L:
+  device: xc7vx485t
+  package: ffg1927
+  speedgrade: 2L
+xc7vx485tffg1927-3:
+  device: xc7vx485t
+  package: ffg1927
+  speedgrade: '3'
+xc7vx485tffg1930-1:
+  device: xc7vx485t
+  package: ffg1930
+  speedgrade: '1'
+xc7vx485tffg1930-2:
+  device: xc7vx485t
+  package: ffg1930
+  speedgrade: '2'
+xc7vx485tffg1930-2L:
+  device: xc7vx485t
+  package: ffg1930
+  speedgrade: 2L
+xc7vx485tffg1930-3:
+  device: xc7vx485t
+  package: ffg1930
+  speedgrade: '3'
