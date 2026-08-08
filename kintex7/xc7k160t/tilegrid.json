@@ -734807,7 +734807,7 @@
         "type": "RIOI"
     },
     "RIOI_X73Y9": {
-        "bits": {},
+        "bits": {"CLB_IO_CLK": {"baseaddr": "0x00442480", "frames": 42, "offset": 18, "words": 4}},
         "clock_region": "X1Y0",
         "grid_x": 188,
         "grid_y": 250,
