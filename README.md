@@ -1,5 +1,7 @@
 # Project X-Ray - Xilinx Series 7 Bitstream Documentation
 
+[![NLnet Foundation](https://img.shields.io/badge/funded%20by-NLnet%20Foundation-74AA00)](https://nlnet.nl/)
+
 [TOC]
 
 This repo contains the bitstream documentation database for Xilinx Series 7
