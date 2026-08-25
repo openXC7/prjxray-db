@@ -34,3 +34,13 @@ xc7s50ftgb196-2:
   device: xc7s50
   package: ftgb196
   speedgrade: '2'
+
+xc7s25csga324-1:
+  device: xc7s25
+  package: csga324
+  speedgrade: '1'
+
+xc7s25csga324-1:
+  device: xc7s25
+  package: csga324
+  speedgrade: '1'
