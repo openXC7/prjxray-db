@@ -2,5 +2,9 @@
   "device": "xc7s6",
   "fabric": "xc7s6",
   "package": "cpga196",
-  "speedgrade": "-1IL"
+  "speedgrade": "-1IL",
+  "iobanks": {
+    "14": "X1Y26",
+    "34": "X89Y26"
+  }
 }
