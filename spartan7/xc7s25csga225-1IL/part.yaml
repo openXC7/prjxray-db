@@ -1,0 +1,4 @@
+device: 'xc7s25'
+fabric: 'xc7s25'
+package: 'csga225'
+speedgrade: '-1IL'

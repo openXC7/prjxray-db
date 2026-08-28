@@ -1,0 +1,11 @@
+{
+  "device": "xc7s25",
+  "fabric": "xc7s25",
+  "package": "csga225",
+  "speedgrade": "-1IL",
+  "iobanks": {
+    "14": "X1Y26",
+    "15": "X1Y78",
+    "34": "X100Y26"
+  }
+}
