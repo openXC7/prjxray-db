@@ -401127,7 +401127,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOB33"
                 },
                 "baseaddr": "0x00420000",
@@ -401183,7 +401183,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOB33"
                 },
                 "baseaddr": "0x00400000",
@@ -401239,7 +401239,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOB33"
                 },
                 "baseaddr": "0x00000000",
@@ -401295,7 +401295,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOB33"
                 },
                 "baseaddr": "0x00020000",
@@ -403555,7 +403555,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOI3"
                 },
                 "baseaddr": "0x00420000",
@@ -403607,7 +403607,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOI3"
                 },
                 "baseaddr": "0x00400000",
@@ -403659,7 +403659,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOI3"
                 },
                 "baseaddr": "0x00000000",
@@ -403711,7 +403711,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "LIOI3"
                 },
                 "baseaddr": "0x00020000",
@@ -428667,7 +428667,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOB33"
                 },
                 "baseaddr": "0x00421A80",
@@ -428723,7 +428723,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOB33"
                 },
                 "baseaddr": "0x00401A80",
@@ -428779,7 +428779,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOB33"
                 },
                 "baseaddr": "0x00001A80",
@@ -428835,7 +428835,7 @@
                     "sites": {
                         "IOB33_Y0": "IOB33_Y1"
                     },
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOB33"
                 },
                 "baseaddr": "0x00021A80",
@@ -431095,7 +431095,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOI3"
                 },
                 "baseaddr": "0x00421A80",
@@ -431147,7 +431147,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOI3"
                 },
                 "baseaddr": "0x00401A80",
@@ -431199,7 +431199,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOI3"
                 },
                 "baseaddr": "0x00001A80",
@@ -431251,7 +431251,7 @@
             "CLB_IO_CLK": {
                 "alias": {
                     "sites": {},
-                    "start_offset": 2,
+                    "start_offset": 0,
                     "type": "RIOI3"
                 },
                 "baseaddr": "0x00021A80",
