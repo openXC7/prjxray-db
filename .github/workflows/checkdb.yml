@@ -59,7 +59,7 @@ jobs:
           fail=0
           while read -r family db_root part; do
             echo "::group::checkdb -- $family / $part"
-            if ! python3 tool/utils/checkdb.py --db-root "db/$db_root" --part "$part"; then
+            if ! python3 tool/utils/checkdb.py --db-root "$db_root" --part "$part"; then
               echo "FAILED: $family / $part"
               fail=1
             fi
