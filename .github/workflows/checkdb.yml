@@ -15,6 +15,16 @@ name: checkdb
 # exactly the class of bug prjxray-db#15's own description hit before it was
 # fixed (a KeyError on a device carrying a tile type its assigned fabric
 # doesn't have, an assertion on a block type missing a frame address).
+#
+# One job per device rather than one job for the whole database: checkdb's
+# aggregate tile-overlap stage keeps a dict entry per bit of the fabric
+# (checkdb.py's `mall`, with a formatted name string per bit, ~250 bytes/bit),
+# so the large fabrics need several GiB. Run serially, xc7z035fbg676-1 (which
+# devices.yaml maps to the larger xc7z045 fabric) exhausts a standard 16 GB
+# runner and takes the runner agent down with it, which silently dropped every
+# device after it -- zynq7's xc7z045 and xc7z100 -- on every run since the gate
+# was added. Per-device jobs bound that to the device that hits the wall; the
+# others still report. fail-fast stays off for the same reason.
 
 on:
   push:
@@ -23,8 +33,56 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkdb:
+  targets:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.list.outputs.matrix }}
+    steps:
+      - name: Check out prjxray-db
+        uses: actions/checkout@v4
+        with:
+          path: db
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install the target lister's Python dependency
+        run: pip install pyyaml
+
+      - name: List checkdb targets (one representative part per device)
+        id: list
+        run: |
+          python3 db/.github/scripts/list_checkdb_targets.py db \
+            | tee /tmp/checkdb_targets.txt
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          import pathlib
+
+          rows = [
+              line.split()
+              for line in pathlib.Path("/tmp/checkdb_targets.txt").read_text().splitlines()
+              if line.strip()
+          ]
+          assert rows, "no checkdb targets found"
+          matrix = {
+              "include": [
+                  {"family": family, "db_root": db_root, "part": part}
+                  for family, db_root, part in rows
+              ]
+          }
+          print("matrix=" + json.dumps(matrix))
+          PY
+
+  checkdb:
+    needs: targets
+    runs-on: ubuntu-latest
+    name: checkdb -- ${{ matrix.family }} / ${{ matrix.part }}
+    timeout-minutes: 30
+    strategy:
+      # A device that trips the memory wall must not cancel the others.
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.targets.outputs.matrix) }}
     steps:
       - name: Check out prjxray-db
         uses: actions/checkout@v4
@@ -36,6 +94,12 @@ jobs:
         with:
           repository: openXC7/prjxray
           path: tool
+          # Pinned like the rest of this gate: checkdb.py is the tool the gate
+          # measures with, so a moving master would change what the gate means
+          # from one run to the next. Bump this when a tool change is wanted;
+          # openXC7/prjxray#24 (the bitmap rewrite that lets the large zynq7
+          # fabrics be checked at all on a 16 GB runner) is the next one.
+          ref: ed3331c6200f421164101388759fc2860b0f5634
           submodules: false
 
       - uses: actions/setup-python@v5
@@ -45,24 +109,10 @@ jobs:
       - name: Install checkdb's Python dependencies
         run: pip install pyyaml simplejson intervaltree ordered-set parse textx
 
-      - name: List checkdb targets (one representative part per device)
-        id: targets
-        run: |
-          python3 db/.github/scripts/list_checkdb_targets.py db \
-            | tee /tmp/checkdb_targets.txt
-
-      - name: Run checkdb.py against every device
+      - name: Run checkdb.py against ${{ matrix.family }} / ${{ matrix.part }}
         env:
           PYTHONPATH: ${{ github.workspace }}/tool:${{ github.workspace }}/tool/third_party/fasm
         run: |
-          set -e
-          fail=0
-          while read -r family db_root part; do
-            echo "::group::checkdb -- $family / $part"
-            if ! python3 tool/utils/checkdb.py --db-root "$db_root" --part "$part"; then
-              echo "FAILED: $family / $part"
-              fail=1
-            fi
-            echo "::endgroup::"
-          done < /tmp/checkdb_targets.txt
-          exit $fail
+          echo "::group::checkdb -- ${{ matrix.family }} / ${{ matrix.part }}"
+          python3 tool/utils/checkdb.py --db-root "${{ matrix.db_root }}" --part "${{ matrix.part }}"
+          echo "::endgroup::"
