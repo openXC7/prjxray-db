@@ -96,10 +96,11 @@ jobs:
           path: tool
           # Pinned like the rest of this gate: checkdb.py is the tool the gate
           # measures with, so a moving master would change what the gate means
-          # from one run to the next. Bump this when a tool change is wanted;
-          # openXC7/prjxray#24 (the bitmap rewrite that lets the large zynq7
-          # fabrics be checked at all on a 16 GB runner) is the next one.
-          ref: ed3331c6200f421164101388759fc2860b0f5634
+          # from one run to the next. Bump this when a tool change is wanted.
+          # ed3331c6 -> cf41ba39 picks up openXC7/prjxray#24: bitmap occupancy
+          # instead of a dict entry and a formatted name per bit, which is what
+          # lets the large zynq7 fabrics be checked on a 16 GB runner at all.
+          ref: cf41ba39e37e693981e887dc5f4fdedbff83c05c
           submodules: false
 
       - uses: actions/setup-python@v5
