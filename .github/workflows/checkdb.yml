@@ -94,6 +94,12 @@ jobs:
         with:
           repository: openXC7/prjxray
           path: tool
+          # Pinned like the rest of this gate: checkdb.py is the tool the gate
+          # measures with, so a moving master would change what the gate means
+          # from one run to the next. Bump this when a tool change is wanted;
+          # openXC7/prjxray#24 (the bitmap rewrite that lets the large zynq7
+          # fabrics be checked at all on a 16 GB runner) is the next one.
+          ref: ed3331c6200f421164101388759fc2860b0f5634
           submodules: false
 
       - uses: actions/setup-python@v5
