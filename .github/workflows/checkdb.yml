@@ -17,14 +17,15 @@ name: checkdb
 # doesn't have, an assertion on a block type missing a frame address).
 #
 # One job per device rather than one job for the whole database: checkdb's
-# aggregate tile-overlap stage keeps a dict entry per bit of the fabric
-# (checkdb.py's `mall`, with a formatted name string per bit, ~250 bytes/bit),
-# so the large fabrics need several GiB. Run serially, xc7z035fbg676-1 (which
-# devices.yaml maps to the larger xc7z045 fabric) exhausts a standard 16 GB
-# runner and takes the runner agent down with it, which silently dropped every
-# device after it -- zynq7's xc7z045 and xc7z100 -- on every run since the gate
-# was added. Per-device jobs bound that to the device that hits the wall; the
-# others still report. fail-fast stays off for the same reason.
+# aggregate tile-overlap stage walks every bit of the fabric and is the most
+# resource-hungry part of the gate. It used to hold a dict entry per bit, with
+# a formatted name string each (~250 bytes/bit), so xc7z035fbg676-1 -- which
+# devices.yaml maps to the larger xc7z045 fabric -- exhausted a standard 16 GB
+# runner and took the runner agent down with it, silently dropping every device
+# after it. openXC7/prjxray#24 replaced that with a bitmap, so the same device
+# now peaks around 300 MiB. Per-device jobs stay regardless: a device that
+# dies, wedges or hits a wall costs only itself, and each device's verdict is
+# its own check. fail-fast stays off for the same reason.
 
 on:
   push:
