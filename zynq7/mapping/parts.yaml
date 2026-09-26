@@ -1,3 +1,19 @@
+xc7z007sclg225-1:
+  device: xc7z007s
+  package: clg225
+  speedgrade: '1'
+xc7z007sclg225-2:
+  device: xc7z007s
+  package: clg225
+  speedgrade: '2'
+xc7z007sclg400-1:
+  device: xc7z007s
+  package: clg400
+  speedgrade: '1'
+xc7z007sclg400-2:
+  device: xc7z007s
+  package: clg400
+  speedgrade: '2'
 xc7z010clg225-1:
   device: xc7z010
   package: clg225
