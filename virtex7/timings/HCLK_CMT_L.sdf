@@ -1,0 +1,31 @@
+
+(DELAYFILE
+    (SDFVERSION "3.0")
+    (TIMESCALE 1ns)
+
+    (CELL
+        (CELLTYPE "BUFMRCE")
+        (INSTANCE BUFMRCE)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH I O (0.030::0.034)(0.076::0.085))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "BUFMRCE_CE_TYPE_SYNC_INIT_OUT_0")
+        (INSTANCE BUFMRCE)
+        (TIMINGCHECK
+            (HOLD CE (posedge I) (0.193::0.216))
+            (SETUP CE (posedge I) (0.127::0.165))
+        )
+    )
+    (CELL
+        (CELLTYPE "BUFMRCE_CE_TYPE_SYNC_INIT_OUT_1")
+        (INSTANCE BUFMRCE)
+        (TIMINGCHECK
+            (HOLD CE (posedge I) (0.193::0.216))
+            (SETUP CE (posedge I) (0.127::0.165))
+        )
+    )
+)

@@ -1,0 +1,476 @@
+
+(DELAYFILE
+    (SDFVERSION "3.0")
+    (TIMESCALE 1ns)
+
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_DELAY_SRC_DATAIN")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH DATAIN DATAOUT (0.397::0.461)(0.660::0.763))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_DELAY_SRC_DATAIN_FINEDELAY_ADD_DLY")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH DATAIN DATAOUT (0.397::0.461)(0.660::0.763))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_DELAY_SRC_DATAIN_FINEDELAY_BYPASS")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH DATAIN DATAOUT (0.397::0.461)(0.660::0.763))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_DELAY_SRC_IDATAIN")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH IDATAIN DATAOUT (0.264::0.331)(0.575::0.666))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_DELAY_SRC_IDATAIN_FINEDELAY_ADD_DLY")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH IDATAIN DATAOUT (0.264::0.331)(0.575::0.666))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_DELAY_SRC_IDATAIN_FINEDELAY_BYPASS")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH IDATAIN DATAOUT (0.264::0.331)(0.575::0.666))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_IDELAY_TYPE_VARIABLE")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH C CNTVALUEOUT (0.291::0.315)(0.533::0.577))
+                (IOPATH CINVCTRL CNTVALUEOUT (0.327::0.355)(0.603::0.653))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD CE (posedge C) (0.104::0.112))
+            (SETUP CE (posedge C) (0.123::0.133))
+            (HOLD INC (posedge C) (0.145::0.157))
+            (SETUP INC (posedge C) (0.107::0.115))
+            (HOLD LD (posedge C) (0.091::0.099))
+            (SETUP LD (posedge C) (0.072::0.078))
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_IDELAY_TYPE_VAR_LOAD")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH C CNTVALUEOUT (0.291::0.315)(0.533::0.577))
+                (IOPATH CINVCTRL CNTVALUEOUT (0.327::0.355)(0.603::0.653))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD CE (posedge C) (0.104::0.112))
+            (SETUP CE (posedge C) (0.123::0.133))
+            (HOLD CNTVALUEIN (posedge C) (0.093::0.101))
+            (SETUP CNTVALUEIN (posedge C) (0.071::0.077))
+            (HOLD INC (posedge C) (0.145::0.157))
+            (SETUP INC (posedge C) (0.107::0.115))
+            (HOLD LD (posedge C) (0.091::0.099))
+            (SETUP LD (posedge C) (0.072::0.078))
+        )
+    )
+    (CELL
+        (CELLTYPE "IDELAYE2_FINEDELAY_IDELAYE2_FINEDELAYIDELAYE2_IDELAY_TYPE_VAR_LOAD_PIPE")
+        (INSTANCE IDELAYE2_FINEDELAY)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH C CNTVALUEOUT (0.291::0.315)(0.533::0.577))
+                (IOPATH CINVCTRL CNTVALUEOUT (0.327::0.355)(0.603::0.653))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD CNTVALUEIN (posedge C) (0.195::0.211))
+            (SETUP CNTVALUEIN (posedge C) (-0.084::-0.078))
+            (HOLD INC (posedge C) (0.145::0.157))
+            (SETUP INC (posedge C) (0.107::0.115))
+            (HOLD LDPIPEEN (posedge C) (0.077::0.083))
+            (SETUP LDPIPEEN (posedge C) (0.023::0.025))
+            (HOLD REGRST (posedge C) (0.086::0.094))
+            (SETUP REGRST (posedge C) (0.126::0.136))
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF")
+        (INSTANCE ILOGICE2)
+        (TIMINGCHECK
+            (HOLD CE (posedge CK) (-0.079::-0.069))
+            (SETUP CE (posedge CK) (0.340::0.458))
+            (HOLD SR (posedge CK) (-0.211::-0.004))
+            (SETUP SR (posedge CK) (0.399::0.465))
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_DDR")
+        (INSTANCE ILOGICE2)
+        (TIMINGCHECK
+            (HOLD CE (posedge CKB) (-0.079::-0.069))
+            (SETUP CE (posedge CKB) (0.340::0.458))
+            (HOLD D (posedge CK) (0.012::0.014))
+            (SETUP D (posedge CK) (0.068::0.078))
+            (HOLD D (posedge CKB) (0.012::0.014))
+            (SETUP D (posedge CKB) (0.068::0.078))
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_FF")
+        (INSTANCE ILOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH SR Q1 (0.218::0.251)(0.464::0.533))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD D (posedge CK) (0.012::0.014))
+            (SETUP D (posedge CK) (0.068::0.078))
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_LAT")
+        (INSTANCE ILOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH D Q1 (0.088::0.101)(0.161::0.185))
+                (IOPATH SR Q1 (0.218::0.251)(0.459::0.528))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD D (posedge CK) (0.102::0.118))
+            (SETUP D (posedge CK) (0.032::0.036))
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_OPPEDGE")
+        (INSTANCE ILOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH SR Q1 (0.218::0.251)(0.464::0.533))
+                (IOPATH SR Q2 (0.218::0.251)(0.464::0.533))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_PIPELINED")
+        (INSTANCE ILOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH SR Q1 (0.218::0.251)(0.464::0.533))
+                (IOPATH SR Q2 (0.218::0.251)(0.464::0.533))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_REMOV")
+        (INSTANCE ILOGICE2)
+        (TIMINGCHECK
+            (HOLD SR (posedge CK) (-0.385::-0.336))
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_SAMEEDGE")
+        (INSTANCE ILOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH SR Q1 (0.218::0.251)(0.464::0.533))
+                (IOPATH SR Q2 (0.218::0.251)(0.464::0.533))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ILOGICE2_IFF_SETUP")
+        (INSTANCE ILOGICE2)
+        (TIMINGCHECK
+            (RECOVERY SR (posedge CK) (0.374::0.431))
+        )
+    )
+    (CELL
+        (CELLTYPE "SELMUX2_1")
+        (INSTANCE ILOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH 0 OUT (0.050::0.062)(0.087::0.109))
+                (IOPATH 1 OUT (0.051::0.063)(0.089::0.111))
+                (IOPATH S0 OUT (0.082::0.102)(0.136::0.171))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ODELAYE2_DELAY_SRC_CLKIN")
+        (INSTANCE ODELAYE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLKIN DATAOUT (0.355::0.372)(0.823::0.864))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ODELAYE2_DELAY_SRC_ODATAIN")
+        (INSTANCE ODELAYE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH ODATAIN DATAOUT (0.370::0.387)(0.859::0.906))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ODELAYE2_ODELAY_TYPE_VARIABLE")
+        (INSTANCE ODELAYE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH C CNTVALUEOUT (0.311::0.337)(0.554::0.600))
+                (IOPATH CINVCTRL CNTVALUEOUT (0.347::0.375)(0.634::0.686))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD CE (posedge C) (0.032::0.034))
+            (SETUP CE (posedge C) (0.147::0.159))
+            (HOLD INC (posedge C) (0.068::0.074))
+            (SETUP INC (posedge C) (0.103::0.111))
+            (HOLD LD (posedge C) (0.102::0.110))
+            (SETUP LD (posedge C) (0.118::0.128))
+        )
+    )
+    (CELL
+        (CELLTYPE "ODELAYE2_ODELAY_TYPE_VAR_LOAD")
+        (INSTANCE ODELAYE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH C CNTVALUEOUT (0.311::0.337)(0.554::0.600))
+                (IOPATH CINVCTRL CNTVALUEOUT (0.347::0.375)(0.634::0.686))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD CE (posedge C) (0.032::0.034))
+            (SETUP CE (posedge C) (0.147::0.159))
+            (HOLD CNTVALUEIN (posedge C) (0.037::0.041))
+            (SETUP CNTVALUEIN (posedge C) (0.143::0.155))
+            (HOLD INC (posedge C) (0.068::0.074))
+            (SETUP INC (posedge C) (0.103::0.111))
+            (HOLD LD (posedge C) (0.102::0.110))
+            (SETUP LD (posedge C) (0.118::0.128))
+        )
+    )
+    (CELL
+        (CELLTYPE "ODELAYE2_ODELAY_TYPE_VAR_LOAD_PIPE")
+        (INSTANCE ODELAYE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH C CNTVALUEOUT (0.311::0.337)(0.554::0.600))
+                (IOPATH CINVCTRL CNTVALUEOUT (0.347::0.375)(0.634::0.686))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD CNTVALUEIN (posedge C) (0.102::0.110))
+            (SETUP CNTVALUEIN (posedge C) (0.017::0.019))
+            (HOLD INC (posedge C) (0.068::0.074))
+            (SETUP INC (posedge C) (0.103::0.111))
+            (HOLD LDPIPEEN (posedge C) (-0.005::-0.005))
+            (SETUP LDPIPEEN (posedge C) (0.110::0.120))
+            (HOLD REGRST (posedge C) (0.051::0.055))
+            (SETUP REGRST (posedge C) (0.171::0.185))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD OCE (posedge CK) (-0.016::-0.014))
+            (SETUP OCE (posedge CK) (0.252::0.290))
+            (HOLD SR (posedge CK) (0.104::0.120))
+            (RECOVERY SR (posedge CK) (0.187::0.215))
+            (REMOVAL SR (posedge CK) (0.000::0.000))
+            (SETUP SR (posedge CK) (0.327::0.380))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF_DDR")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD D1 (posedge CK) (-0.175::-0.153))
+            (SETUP D1 (posedge CK) (0.471::0.500))
+            (HOLD D2 (posedge CK) (-0.175::-0.153))
+            (SETUP D2 (posedge CK) (0.445::0.473))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF_DDR_NEG")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD D2 (posedge CK) (-0.175::-0.153))
+            (SETUP D2 (posedge CK) (0.445::0.473))
+            (HOLD OCE (posedge CK) (-0.117::-0.102))
+            (SETUP OCE (posedge CK) (0.345::0.397))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF_DDR_SAMEEDGE")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD OCE (posedge CK) (-0.117::-0.102))
+            (SETUP OCE (posedge CK) (0.252::0.290))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF_FF")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.192::0.221)(0.338::0.366))
+                (IOPATH SR Q (0.327::0.376)(0.603::0.694))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD D1 (posedge CK) (-0.175::-0.153))
+            (SETUP D1 (posedge CK) (0.471::0.500))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF_LAT")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.192::0.221)(0.318::0.366))
+                (IOPATH D1 Q (0.531::0.611)(0.675::0.777))
+                (IOPATH SR Q (0.327::0.376)(0.603::0.694))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD D1 (posedge CK) (-0.175::-0.153))
+            (SETUP D1 (posedge CK) (0.248::0.285))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF_OPPEDGE")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.192::0.221)(0.318::0.366))
+                (IOPATH SR Q (0.327::0.376)(0.603::0.694))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_OUTFF_SAMEEDGE")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.192::0.221)(0.318::0.366))
+                (IOPATH SR Q (0.327::0.376)(0.603::0.694))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD SR (posedge CK) (-0.294::-0.256))
+            (RECOVERY SR (posedge CK) (0.180::0.207))
+            (REMOVAL SR (posedge CK) (0.000::0.000))
+            (SETUP SR (posedge CK) (0.323::0.376))
+            (HOLD TCE (posedge CK) (-0.043::-0.037))
+            (SETUP TCE (posedge CK) (0.257::0.296))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF_DDR")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD D1 (posedge CK) (-0.242::-0.211))
+            (SETUP D1 (posedge CK) (0.525::0.558))
+            (HOLD D2 (posedge CK) (-0.242::-0.211))
+            (SETUP D2 (posedge CK) (0.407::0.432))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF_DDR_NEG")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD D2 (posedge CK) (-0.242::-0.211))
+            (SETUP D2 (posedge CK) (0.407::0.432))
+            (HOLD TCE (posedge CK) (-0.043::-0.037))
+            (SETUP TCE (posedge CK) (0.257::0.296))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF_DDR_SAMEEDGE")
+        (INSTANCE OLOGICE2)
+        (TIMINGCHECK
+            (HOLD TCE (posedge CK) (-0.043::-0.037))
+            (SETUP TCE (posedge CK) (0.350::0.403))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF_FF")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.209::0.240)(0.371::0.426))
+                (IOPATH SR Q (0.357::0.410)(0.669::0.769))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD D1 (posedge CK) (-0.242::-0.211))
+            (SETUP D1 (posedge CK) (0.525::0.558))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF_LAT")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.209::0.240)(0.371::0.426))
+                (IOPATH D1 Q (0.558::0.642)(0.734::0.844))
+                (IOPATH SR Q (0.357::0.410)(0.669::0.769))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD D1 (posedge CK) (-0.242::-0.211))
+            (SETUP D1 (posedge CK) (0.260::0.299))
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF_OPPEDGE")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.209::0.240)(0.371::0.426))
+                (IOPATH SR Q (0.357::0.410)(0.669::0.769))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "OLOGICE2_TFF_SAMEEDGE")
+        (INSTANCE OLOGICE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK Q (0.209::0.240)(0.371::0.426))
+                (IOPATH SR Q (0.357::0.410)(0.669::0.769))
+            )
+        )
+    )
+)
