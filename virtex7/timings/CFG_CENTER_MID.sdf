@@ -1,0 +1,31 @@
+
+(DELAYFILE
+    (SDFVERSION "3.0")
+    (TIMESCALE 1ns)
+
+    (CELL
+        (CELLTYPE "CAPTURE")
+        (INSTANCE CAPTURE)
+        (TIMINGCHECK
+            (HOLD CAP (posedge CLK) (0.000::0.000))
+            (SETUP CAP (posedge CLK) (3.259::3.749))
+        )
+    )
+    (CELL
+        (CELLTYPE "ICAP")
+        (INSTANCE ICAP)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH CLK O (3.616::4.160)(4.068::4.680))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD CSIB (posedge CLK) (0.000::0.000))
+            (SETUP CSIB (posedge CLK) (3.051::3.510))
+            (HOLD I (posedge CLK) (0.000::0.000))
+            (SETUP I (posedge CLK) (2.068::2.378))
+            (HOLD RDWRB (posedge CLK) (0.000::0.000))
+            (SETUP RDWRB (posedge CLK) (4.656::5.356))
+        )
+    )
+)

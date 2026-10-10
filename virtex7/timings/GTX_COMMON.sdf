@@ -1,0 +1,50 @@
+
+(DELAYFILE
+    (SDFVERSION "3.0")
+    (TIMESCALE 1ns)
+
+    (CELL
+        (CELLTYPE "GTXE2_COMMON_GTXE2_COMMONGTXE2_COMMON")
+        (INSTANCE GTXE2_COMMON)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH DRPCLK DRPDO (0.825::0.876)(1.368::1.453))
+                (IOPATH DRPCLK DRPRDY (0.825::0.876)(1.368::1.453))
+                (IOPATH GTGREFCLK REFCLKOUTMONITOR (0.452::0.720)(1.454::2.316))
+                (IOPATH GTNORTHREFCLK0 REFCLKOUTMONITOR (0.452::0.720)(1.454::2.316))
+                (IOPATH GTNORTHREFCLK1 REFCLKOUTMONITOR (0.452::0.720)(1.454::2.316))
+                (IOPATH GTREFCLK0 REFCLKOUTMONITOR (0.452::0.720)(1.454::2.316))
+                (IOPATH GTREFCLK1 REFCLKOUTMONITOR (0.452::0.720)(1.454::2.316))
+                (IOPATH GTSOUTHREFCLK0 REFCLKOUTMONITOR (0.452::0.720)(1.454::2.316))
+                (IOPATH GTSOUTHREFCLK1 REFCLKOUTMONITOR (0.452::0.720)(1.454::2.316))
+                (IOPATH PMASCANCLK0 PMASCANOUT0 (0.452::0.720)(1.454::2.316))
+                (IOPATH PMASCANCLK0 PMASCANOUT1 (0.452::0.720)(1.454::2.316))
+                (IOPATH PMASCANCLK0 PMASCANOUT2 (0.452::0.720)(1.454::2.316))
+                (IOPATH PMASCANCLK0 PMASCANOUT3 (0.452::0.720)(1.454::2.316))
+                (IOPATH PMASCANCLK1 PMASCANOUT4 (0.452::0.720)(1.454::2.316))
+            )
+        )
+        (TIMINGCHECK
+            (HOLD DRPADDR (posedge DRPCLK) (0.135::0.143))
+            (SETUP DRPADDR (posedge DRPCLK) (0.803::0.853))
+            (HOLD DRPDI (posedge DRPCLK) (0.135::0.143))
+            (SETUP DRPDI (posedge DRPCLK) (0.803::0.853))
+            (HOLD DRPEN (posedge DRPCLK) (0.135::0.143))
+            (SETUP DRPEN (posedge DRPCLK) (0.803::0.853))
+            (HOLD DRPWE (posedge DRPCLK) (0.135::0.143))
+            (SETUP DRPWE (posedge DRPCLK) (0.803::0.853))
+        )
+    )
+    (CELL
+        (CELLTYPE "IBUFDS_GTE2_IBUFDS_GTE2IBUFDS_GTE2")
+        (INSTANCE IBUFDS_GTE2)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH I O (0.441::0.732)(1.418::2.355))
+                (IOPATH I ODIV2 (0.441::0.732)(1.418::2.355))
+                (IOPATH IB O (0.441::0.732)(1.418::2.355))
+                (IOPATH IB ODIV2 (0.441::0.732)(1.418::2.355))
+            )
+        )
+    )
+)
