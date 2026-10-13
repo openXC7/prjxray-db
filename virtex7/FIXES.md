@@ -162,3 +162,16 @@ DOUTMUX feature and the cascade link was silently dropped.  Fix: remove `30_10`;
 the remaining `!30_51 30_52 !30_56 30_57` is distinct from every other DOUTMUX
 leg.  Found via the bit2verilog srl differential test (160-deep SRL, d3 diverged
 at cycle 129 = the first value needing the cross-slice hop).
+
+## LIOB18 STEPDOWN bit-free
+`LIOB18.IOB_Y{0,1}.LVCMOS12_LVCMOS15_LVCMOS18_SSTL135_SSTL15.STEPDOWN` was `!00_127`: a negated-only entry (no set bit, so segmatch
+found no distinguishing bit), at frame 0, word 3, bit 31 of the IOB window.  On a regular LIOB18 row that bit lands in the word of the
+neighbouring INT_L tile (both tiles share the 0x421000 column, which is legitimate), so fasm2frames raises FasmInconsistentBits for any
+design that routes the INT_L pip in that word and has a STEPDOWN IOB:
+
+    FASM line "INT_L_X32Y8.LH12.LH0" wanted to set bit (4329472, 17, 31) but was cleared by FASM line
+    "LIOB18_X81Y8.IOB_Y1.LVCMOS12_LVCMOS15_LVCMOS18_SSTL135_SSTL15.STEPDOWN"
+
+Fix: drop the two segbits entries and declare the feature bit-free in `ppips_liob18.db` (`always`), as is done for ZINV_D.  RIOB18 never
+carried it.  Checked on a VC707: a design that failed to assemble with this error now assembles, and boots through the open flow.
+`HCLK_IOI.STEPDOWN` is also `!00_127` and may need the same treatment if it collides.
