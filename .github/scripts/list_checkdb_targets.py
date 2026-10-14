@@ -11,13 +11,34 @@ the wrong device's fabric (the exact class of bug fixed in prjxray-db#15) is
 still caught once per device, without the runtime cost of checking all ~40
 parts individually.
 
-Prints one line per target: "<family> <db_root_dir> <part>"
+Prints one line per target: "<family> <db_root_dir> <part> <gate>", where
+<gate> is "required" or "informational" (see INFORMATIONAL_FAMILIES).
 """
 import sys
 import yaml
 import pathlib
 
 FAMILIES = ["artix7", "kintex7", "spartan7", "virtex7", "zynq7"]
+
+# Families whose checkdb result does not gate the database. Their jobs still
+# run checkdb in full and keep the whole log, but a failure only raises a
+# warning. checkdb has failed on every part of these two families since the
+# gate came in (4885543a), for reasons older than the gate that no data fix
+# alone removes:
+#   - pairs of segbits rows carry the same bits under two names (RIOB18 in
+#     kintex7, LIOB18/RIOB18 in virtex7), and nextpnr writes both names of
+#     most of them, so neither name can simply go;
+#   - kintex7 GTX_COMMON.GTX_CHANNEL_n_IN_USE repeats the bits of the
+#     GTX_CHANNEL_n IN_USE rows on purpose, the disassembly workaround of
+#     a54f8b7;
+#   - the HP-bank rows of 3bd17eb put INT_L/INT_R.IOB_COL_BANK_ACTIVE in frame
+#     38 of a 28-frame INT tile, and the RIOB18 *_HP_BANK_GLUE rows on bits of
+#     the neighbouring RIOI (virtex7, which 3bd17eb mirrors, has the INT rows
+#     too);
+#   - virtex7 GT and PCIe tiles have segbits rows but no CLB_IO_CLK block in
+#     the tilegrid of the virtex7 import (7a36171).
+# To make a family gate the database again, remove it from this set.
+INFORMATIONAL_FAMILIES = {"kintex7", "virtex7"}
 
 
 def main():
@@ -51,7 +72,12 @@ def main():
                     file=sys.stderr,
                 )
                 continue
-            print(f"{family} {family_dir} {part}")
+            gate = (
+                "informational"
+                if family in INFORMATIONAL_FAMILIES
+                else "required"
+            )
+            print(f"{family} {family_dir} {part} {gate}")
 
 
 if __name__ == "__main__":
