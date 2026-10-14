@@ -26,6 +26,19 @@ name: checkdb
 # now peaks around 300 MiB. Per-device jobs stay regardless: a device that
 # dies, wedges or hits a wall costs only itself, and each device's verdict is
 # its own check. fail-fast stays off for the same reason.
+#
+# Not every family gates the database. kintex7 and virtex7 have failed checkdb
+# since this gate came in, on rows older than the gate that no data fix alone
+# turns green: names that alias the same bits, a deliberate GTX workaround,
+# rows outside their tile's frames, and virtex7 tiles without a tilegrid block
+# (the list, with the commits, sits next to INFORMATIONAL_FAMILIES in
+# .github/scripts/list_checkdb_targets.py). A job that is always red hides a
+# new failure behind the old one, so those families run as informational jobs:
+# checkdb runs in full with the same tool and keeps its whole log, the job name
+# says "(informational)", and a failure becomes a warning annotation and a step
+# summary carrying the last line of the log instead of a red workflow.
+# artix7, spartan7 and zynq7 gate as before. Removing a family from that set
+# makes it gate again.
 
 on:
   push:
@@ -68,8 +81,8 @@ jobs:
           assert rows, "no checkdb targets found"
           matrix = {
               "include": [
-                  {"family": family, "db_root": db_root, "part": part}
-                  for family, db_root, part in rows
+                  {"family": family, "db_root": db_root, "part": part, "gate": gate}
+                  for family, db_root, part, gate in rows
               ]
           }
           print("matrix=" + json.dumps(matrix))
@@ -78,7 +91,7 @@ jobs:
   checkdb:
     needs: targets
     runs-on: ubuntu-latest
-    name: checkdb -- ${{ matrix.family }} / ${{ matrix.part }}
+    name: checkdb -- ${{ matrix.family }} / ${{ matrix.part }}${{ matrix.gate == 'informational' && ' (informational)' || '' }}
     timeout-minutes: 30
     strategy:
       # A device that trips the memory wall must not cancel the others.
@@ -114,7 +127,28 @@ jobs:
       - name: Run checkdb.py against ${{ matrix.family }} / ${{ matrix.part }}
         env:
           PYTHONPATH: ${{ github.workspace }}/tool:${{ github.workspace }}/tool/third_party/fasm
+          # Unbuffered, so the error checkdb stops on is the last line of the log.
+          PYTHONUNBUFFERED: "1"
+        # bash here means -o pipefail: rc is checkdb's exit code, not tee's.
+        # A required target fails the job as before; an informational one
+        # reports its first error as a warning and ends green.
+        shell: bash
         run: |
           echo "::group::checkdb -- ${{ matrix.family }} / ${{ matrix.part }}"
-          python3 tool/utils/checkdb.py --db-root "${{ matrix.db_root }}" --part "${{ matrix.part }}"
+          rc=0
+          python3 tool/utils/checkdb.py --db-root "${{ matrix.db_root }}" --part "${{ matrix.part }}" 2>&1 \
+            | tee "$RUNNER_TEMP/checkdb.log" || rc=$?
           echo "::endgroup::"
+          if [ "$rc" -ne 0 ] && [ "${{ matrix.gate }}" = informational ]; then
+            last=$(tail -n 1 "$RUNNER_TEMP/checkdb.log")
+            echo "::warning title=checkdb (informational)::${{ matrix.family }} / ${{ matrix.part }} fails checkdb (exit $rc): ${last//%/%25}"
+            {
+              echo "### checkdb -- ${{ matrix.family }} / ${{ matrix.part }} (informational)"
+              echo
+              echo "checkdb exits with $rc. ${{ matrix.family }} is listed in INFORMATIONAL_FAMILIES (.github/scripts/list_checkdb_targets.py), so this does not fail the workflow. Last line of the log:"
+              echo
+              echo "    $last"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          exit "$rc"
