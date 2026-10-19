@@ -1,0 +1,15 @@
+
+(DELAYFILE
+    (SDFVERSION "3.0")
+    (TIMESCALE 1ns)
+
+    (CELL
+        (CELLTYPE "IOB18_INBUF_DCIENIOB18_IOB_INBUF_DCIEN")
+        (INSTANCE IOB18)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH IBUFDISABLE OUT (0.729::0.839)(1.263::1.453))
+            )
+        )
+    )
+)

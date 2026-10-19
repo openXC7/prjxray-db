@@ -1,3 +1,83 @@
+xc7s100fgga484-1:
+  device: xc7s100
+  package: fgga484
+  speedgrade: '1'
+xc7s100fgga484-1IL:
+  device: xc7s100
+  package: fgga484
+  speedgrade: 1IL
+xc7s100fgga484-1Q:
+  device: xc7s100
+  package: fgga484
+  speedgrade: 1Q
+xc7s100fgga484-2:
+  device: xc7s100
+  package: fgga484
+  speedgrade: '2'
+xc7s100fgga676-1:
+  device: xc7s100
+  package: fgga676
+  speedgrade: '1'
+xc7s100fgga676-1IL:
+  device: xc7s100
+  package: fgga676
+  speedgrade: 1IL
+xc7s100fgga676-1Q:
+  device: xc7s100
+  package: fgga676
+  speedgrade: 1Q
+xc7s100fgga676-2:
+  device: xc7s100
+  package: fgga676
+  speedgrade: '2'
+xc7s25csga225-1:
+  device: xc7s25
+  package: csga225
+  speedgrade: '1'
+xc7s25csga225-1IL:
+  device: xc7s25
+  package: csga225
+  speedgrade: 1IL
+xc7s25csga225-1Q:
+  device: xc7s25
+  package: csga225
+  speedgrade: 1Q
+xc7s25csga225-2:
+  device: xc7s25
+  package: csga225
+  speedgrade: '2'
+xc7s25csga324-1:
+  device: xc7s25
+  package: csga324
+  speedgrade: '1'
+xc7s25csga324-1IL:
+  device: xc7s25
+  package: csga324
+  speedgrade: 1IL
+xc7s25csga324-1Q:
+  device: xc7s25
+  package: csga324
+  speedgrade: 1Q
+xc7s25csga324-2:
+  device: xc7s25
+  package: csga324
+  speedgrade: '2'
+xc7s25ftgb196-1:
+  device: xc7s25
+  package: ftgb196
+  speedgrade: '1'
+xc7s25ftgb196-1IL:
+  device: xc7s25
+  package: ftgb196
+  speedgrade: 1IL
+xc7s25ftgb196-1Q:
+  device: xc7s25
+  package: ftgb196
+  speedgrade: 1Q
+xc7s25ftgb196-2:
+  device: xc7s25
+  package: ftgb196
+  speedgrade: '2'
 xc7s50csga324-1:
   device: xc7s50
   package: csga324
@@ -6,6 +86,10 @@ xc7s50csga324-1IL:
   device: xc7s50
   package: csga324
   speedgrade: 1IL
+xc7s50csga324-1Q:
+  device: xc7s50
+  package: csga324
+  speedgrade: 1Q
 xc7s50csga324-2:
   device: xc7s50
   package: csga324
@@ -18,6 +102,10 @@ xc7s50fgga484-1IL:
   device: xc7s50
   package: fgga484
   speedgrade: 1IL
+xc7s50fgga484-1Q:
+  device: xc7s50
+  package: fgga484
+  speedgrade: 1Q
 xc7s50fgga484-2:
   device: xc7s50
   package: fgga484
@@ -30,17 +118,43 @@ xc7s50ftgb196-1IL:
   device: xc7s50
   package: ftgb196
   speedgrade: 1IL
+xc7s50ftgb196-1Q:
+  device: xc7s50
+  package: ftgb196
+  speedgrade: 1Q
 xc7s50ftgb196-2:
   device: xc7s50
   package: ftgb196
   speedgrade: '2'
-
-xc7s25csga324-1:
-  device: xc7s25
-  package: csga324
+xc7s75fgga484-1:
+  device: xc7s75
+  package: fgga484
   speedgrade: '1'
-
-xc7s25csga324-1:
-  device: xc7s25
-  package: csga324
+xc7s75fgga484-1IL:
+  device: xc7s75
+  package: fgga484
+  speedgrade: 1IL
+xc7s75fgga484-1Q:
+  device: xc7s75
+  package: fgga484
+  speedgrade: 1Q
+xc7s75fgga484-2:
+  device: xc7s75
+  package: fgga484
+  speedgrade: '2'
+xc7s75fgga676-1:
+  device: xc7s75
+  package: fgga676
   speedgrade: '1'
+xc7s75fgga676-1IL:
+  device: xc7s75
+  package: fgga676
+  speedgrade: 1IL
+xc7s75fgga676-1Q:
+  device: xc7s75
+  package: fgga676
+  speedgrade: 1Q
+xc7s75fgga676-2:
+  device: xc7s75
+  package: fgga676
+  speedgrade: '2'

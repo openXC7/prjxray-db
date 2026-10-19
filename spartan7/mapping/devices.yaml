@@ -1,9 +1,18 @@
 # device to fabric mapping
+"xc7s25":
+  fabric: "xc7s25"
 "xc7s50":
   fabric: "xc7s50"
-  
-"xc7s25":
-  fabric: "xc7s25"
-
-"xc7s25":
-  fabric: "xc7s25"
+# xc7s75 and xc7s100 are the same die: Vivado reports the identical 28633
+# tiles and 28793 sites for xc7s75fgga676-1 and xc7s100fgga676-1, and their
+# part.yaml frame layouts are identical (9104 frames, 54 columns per row).
+"xc7s75":
+  fabric: "xc7s100"
+"xc7s100":
+  fabric: "xc7s100"
+# xc7s6 and xc7s15 are a fourth, smaller die (1324 frames, 35 columns against
+# xc7s25's 3060 and 75) and have no fabric of their own yet.  They are left
+# unmapped on purpose: an unmapped part fails loudly, while pointing them at
+# another device's fabric silently addresses the wrong frames -- the failure
+# mode that made every xc7s25 bitstream wrong until this device got its own
+# model.

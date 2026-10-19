@@ -1,10 +1,133 @@
 {
-  "device": "xc7s6",
-  "fabric": "xc7s6",
-  "package": "cpga196",
-  "speedgrade": "-2",
-  "iobanks": {
-    "14": "X1Y26",
-    "34": "X89Y26"
-  }
+    "global_clock_regions": {
+        "bottom": {
+            "rows": {}
+        },
+        "top": {
+            "rows": {
+                "0": {
+                    "configuration_buses": {
+                        "BLOCK_RAM": {
+                            "configuration_columns": {
+                                "0": {
+                                    "frame_count": 128
+                                }
+                            }
+                        },
+                        "CLB_IO_CLK": {
+                            "configuration_columns": {
+                                "0": {
+                                    "frame_count": 42
+                                },
+                                "1": {
+                                    "frame_count": 30
+                                },
+                                "2": {
+                                    "frame_count": 36
+                                },
+                                "3": {
+                                    "frame_count": 36
+                                },
+                                "4": {
+                                    "frame_count": 36
+                                },
+                                "5": {
+                                    "frame_count": 36
+                                },
+                                "6": {
+                                    "frame_count": 36
+                                },
+                                "7": {
+                                    "frame_count": 36
+                                },
+                                "8": {
+                                    "frame_count": 36
+                                },
+                                "9": {
+                                    "frame_count": 36
+                                },
+                                "10": {
+                                    "frame_count": 36
+                                },
+                                "11": {
+                                    "frame_count": 30
+                                },
+                                "12": {
+                                    "frame_count": 36
+                                },
+                                "13": {
+                                    "frame_count": 36
+                                },
+                                "14": {
+                                    "frame_count": 36
+                                },
+                                "15": {
+                                    "frame_count": 36
+                                },
+                                "16": {
+                                    "frame_count": 36
+                                },
+                                "17": {
+                                    "frame_count": 36
+                                },
+                                "18": {
+                                    "frame_count": 36
+                                },
+                                "19": {
+                                    "frame_count": 36
+                                },
+                                "20": {
+                                    "frame_count": 30
+                                },
+                                "21": {
+                                    "frame_count": 36
+                                },
+                                "22": {
+                                    "frame_count": 36
+                                },
+                                "23": {
+                                    "frame_count": 36
+                                },
+                                "24": {
+                                    "frame_count": 28
+                                },
+                                "25": {
+                                    "frame_count": 36
+                                },
+                                "26": {
+                                    "frame_count": 36
+                                },
+                                "27": {
+                                    "frame_count": 28
+                                },
+                                "28": {
+                                    "frame_count": 36
+                                },
+                                "29": {
+                                    "frame_count": 36
+                                },
+                                "30": {
+                                    "frame_count": 36
+                                },
+                                "31": {
+                                    "frame_count": 36
+                                },
+                                "32": {
+                                    "frame_count": 30
+                                },
+                                "33": {
+                                    "frame_count": 42
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "idcode": 56762515,
+    "iobanks": {
+        "14": "X1Y26",
+        "34": "X89Y26"
+    }
 }

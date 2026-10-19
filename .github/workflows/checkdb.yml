@@ -1,0 +1,154 @@
+name: checkdb
+
+# Vivado-free regression gate: runs prjxray's own utils/checkdb.py against
+# every device this database declares (one representative part per device,
+# see .github/scripts/list_checkdb_targets.py), checking that every tile's
+# segbits fit within its declared frame/bit range with no overlap, and that
+# every part actually resolves to a fabric with real, parseable tilegrid/
+# segbits data.
+#
+# This does NOT replace hardware validation against real Vivado golden
+# references (see openXC7/nextpnr-xilinx#177 / #189 for that campaign) -- it
+# catches a different, narrower class of bug: a device pointed at the wrong
+# fabric, a part.yaml/devices.yaml inconsistency, or a malformed segbits/mask
+# file, all of which are checkable from the committed data alone. This is
+# exactly the class of bug prjxray-db#15's own description hit before it was
+# fixed (a KeyError on a device carrying a tile type its assigned fabric
+# doesn't have, an assertion on a block type missing a frame address).
+#
+# One job per device rather than one job for the whole database: checkdb's
+# aggregate tile-overlap stage walks every bit of the fabric and is the most
+# resource-hungry part of the gate. It used to hold a dict entry per bit, with
+# a formatted name string each (~250 bytes/bit), so xc7z035fbg676-1 -- which
+# devices.yaml maps to the larger xc7z045 fabric -- exhausted a standard 16 GB
+# runner and took the runner agent down with it, silently dropping every device
+# after it. openXC7/prjxray#24 replaced that with a bitmap, so the same device
+# now peaks around 300 MiB. Per-device jobs stay regardless: a device that
+# dies, wedges or hits a wall costs only itself, and each device's verdict is
+# its own check. fail-fast stays off for the same reason.
+#
+# Not every family gates the database. kintex7 and virtex7 have failed checkdb
+# since this gate came in, on rows older than the gate that no data fix alone
+# turns green: names that alias the same bits, a deliberate GTX workaround,
+# rows outside their tile's frames, and virtex7 tiles without a tilegrid block
+# (the list, with the commits, sits next to INFORMATIONAL_FAMILIES in
+# .github/scripts/list_checkdb_targets.py). A job that is always red hides a
+# new failure behind the old one, so those families run as informational jobs:
+# checkdb runs in full with the same tool and keeps its whole log, the job name
+# says "(informational)", and a failure becomes a warning annotation and a step
+# summary carrying the last line of the log instead of a red workflow.
+# artix7, spartan7 and zynq7 gate as before. Removing a family from that set
+# makes it gate again.
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  targets:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.list.outputs.matrix }}
+    steps:
+      - name: Check out prjxray-db
+        uses: actions/checkout@v4
+        with:
+          path: db
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install the target lister's Python dependency
+        run: pip install pyyaml
+
+      - name: List checkdb targets (one representative part per device)
+        id: list
+        run: |
+          python3 db/.github/scripts/list_checkdb_targets.py db \
+            | tee /tmp/checkdb_targets.txt
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          import pathlib
+
+          rows = [
+              line.split()
+              for line in pathlib.Path("/tmp/checkdb_targets.txt").read_text().splitlines()
+              if line.strip()
+          ]
+          assert rows, "no checkdb targets found"
+          matrix = {
+              "include": [
+                  {"family": family, "db_root": db_root, "part": part, "gate": gate}
+                  for family, db_root, part, gate in rows
+              ]
+          }
+          print("matrix=" + json.dumps(matrix))
+          PY
+
+  checkdb:
+    needs: targets
+    runs-on: ubuntu-latest
+    name: checkdb -- ${{ matrix.family }} / ${{ matrix.part }}${{ matrix.gate == 'informational' && ' (informational)' || '' }}
+    timeout-minutes: 30
+    strategy:
+      # A device that trips the memory wall must not cancel the others.
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.targets.outputs.matrix) }}
+    steps:
+      - name: Check out prjxray-db
+        uses: actions/checkout@v4
+        with:
+          path: db
+
+      - name: Check out prjxray (tool repo, for utils/checkdb.py)
+        uses: actions/checkout@v4
+        with:
+          repository: openXC7/prjxray
+          path: tool
+          # Pinned like the rest of this gate: checkdb.py is the tool the gate
+          # measures with, so a moving master would change what the gate means
+          # from one run to the next. Bump this when a tool change is wanted.
+          # ed3331c6 -> cf41ba39 picks up openXC7/prjxray#24: bitmap occupancy
+          # instead of a dict entry and a formatted name per bit, which is what
+          # lets the large zynq7 fabrics be checked on a 16 GB runner at all.
+          ref: cf41ba39e37e693981e887dc5f4fdedbff83c05c
+          submodules: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install checkdb's Python dependencies
+        run: pip install pyyaml simplejson intervaltree ordered-set parse textx
+
+      - name: Run checkdb.py against ${{ matrix.family }} / ${{ matrix.part }}
+        env:
+          PYTHONPATH: ${{ github.workspace }}/tool:${{ github.workspace }}/tool/third_party/fasm
+          # Unbuffered, so the error checkdb stops on is the last line of the log.
+          PYTHONUNBUFFERED: "1"
+        # bash here means -o pipefail: rc is checkdb's exit code, not tee's.
+        # A required target fails the job as before; an informational one
+        # reports its first error as a warning and ends green.
+        shell: bash
+        run: |
+          echo "::group::checkdb -- ${{ matrix.family }} / ${{ matrix.part }}"
+          rc=0
+          python3 tool/utils/checkdb.py --db-root "${{ matrix.db_root }}" --part "${{ matrix.part }}" 2>&1 \
+            | tee "$RUNNER_TEMP/checkdb.log" || rc=$?
+          echo "::endgroup::"
+          if [ "$rc" -ne 0 ] && [ "${{ matrix.gate }}" = informational ]; then
+            last=$(tail -n 1 "$RUNNER_TEMP/checkdb.log")
+            echo "::warning title=checkdb (informational)::${{ matrix.family }} / ${{ matrix.part }} fails checkdb (exit $rc): ${last//%/%25}"
+            {
+              echo "### checkdb -- ${{ matrix.family }} / ${{ matrix.part }} (informational)"
+              echo
+              echo "checkdb exits with $rc. ${{ matrix.family }} is listed in INFORMATIONAL_FAMILIES (.github/scripts/list_checkdb_targets.py), so this does not fail the workflow. Last line of the log:"
+              echo
+              echo "    $last"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          exit "$rc"
