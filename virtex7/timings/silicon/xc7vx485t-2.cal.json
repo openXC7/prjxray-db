@@ -1,0 +1,73 @@
+{
+ "units": "ps",
+ "source": "calfit.py 2026-11-09",
+ "classes": {
+  "sgl": {
+   "rise": 0.6896,
+   "fall": 0.7987
+  },
+  "dbl": {
+   "rise": 0.689,
+   "fall": 0.8396
+  },
+  "quad": {
+   "rise": 0.6643,
+   "fall": 0.7874
+  },
+  "hex": {
+   "rise": 0.6635,
+   "fall": 0.7982
+  },
+  "lvb": {
+   "rise": 0.4085,
+   "fall": 0.4776
+  },
+  "lv": {
+   "rise": 0.3662,
+   "fall": 0.4412
+  },
+  "lh": {
+   "rise": 0.5859,
+   "fall": 0.6719
+  }
+ },
+ "lut_pin": {
+  "A1": {
+   "rise": 212.7,
+   "fall": 223.8
+  },
+  "A2": {
+   "rise": 217.4,
+   "fall": 238.6
+  },
+  "A3": {
+   "rise": 133.7,
+   "fall": 149.2
+  },
+  "A4": {
+   "rise": 130.6,
+   "fall": 148.7
+  },
+  "A5": {
+   "rise": 74.6,
+   "fall": 72.5
+  },
+  "A6": {
+   "rise": -1.2,
+   "fall": 15.8
+  }
+ },
+ "note": "scale = factor on nextpnr class delay; lut_pin = stage cost beyond IMUX",
+ "per_use": {
+  "fan": {
+   "rise": 79.9,
+   "fall": 78.1
+  },
+  "byp": {
+   "rise": 70.5,
+   "fall": 68.4
+  }
+ },
+ "lut_stage_overhead": 41,
+ "lut_stage_overhead_note": "20 ps site exit stub + 20.8 ps per stage that nextpnr prices beyond the fit (consist.py on route2-cal, 64 paths)"
+}
