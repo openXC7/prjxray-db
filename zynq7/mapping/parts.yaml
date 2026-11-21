@@ -38,6 +38,18 @@ xc7z010clg400-3:
   device: xc7z010
   package: clg400
   speedgrade: '3'
+xc7z015clg485-1:
+  device: xc7z015
+  package: clg485
+  speedgrade: '1'
+xc7z015clg485-2:
+  device: xc7z015
+  package: clg485
+  speedgrade: '2'
+xc7z015clg485-3:
+  device: xc7z015
+  package: clg485
+  speedgrade: '3'
 xc7z020clg400-1:
   device: xc7z020
   package: clg400
