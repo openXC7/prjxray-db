@@ -1,0 +1,24 @@
+
+(DELAYFILE
+    (SDFVERSION "3.0")
+    (TIMESCALE 1ns)
+
+    (CELL
+        (CELLTYPE "IOB33M_INBUF_ENIOB33_IOBM_INBUF_EN")
+        (INSTANCE IOB33M)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH IBUFDISABLE OUT (0.305::0.351)(0.750::0.862))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "IOB33S_INBUF_ENIOB33_IOBS_INBUF_EN")
+        (INSTANCE IOB33S)
+        (DELAY
+            (ABSOLUTE
+                (IOPATH IBUFDISABLE OUT (0.304::0.349)(0.741::0.853))
+            )
+        )
+    )
+)
