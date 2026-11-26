@@ -1,0 +1,41 @@
+(DELAYFILE
+    (SDFVERSION "3.0")
+    (TIMESCALE 1ps)
+
+    (CELL
+        (CELLTYPE "ROUTING_BEL")
+        (INSTANCE SLICEM/ACY0)
+        (DELAY
+            (ABSOLUTE
+                (INTERCONNECT ax di0 (0.063::0.063)(0.063::0.063))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ROUTING_BEL")
+        (INSTANCE SLICEM/BCY0)
+        (DELAY
+            (ABSOLUTE
+                (INTERCONNECT bx di1 (0.059::0.059)(0.059::0.059))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ROUTING_BEL")
+        (INSTANCE SLICEM/CCY0)
+        (DELAY
+            (ABSOLUTE
+                (INTERCONNECT cx di2 (0.057::0.057)(0.057::0.057))
+            )
+        )
+    )
+    (CELL
+        (CELLTYPE "ROUTING_BEL")
+        (INSTANCE SLICEM/DCY0)
+        (DELAY
+            (ABSOLUTE
+                (INTERCONNECT dx di3 (0.052::0.052)(0.052::0.052))
+            )
+        )
+    )
+)
