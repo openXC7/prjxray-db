@@ -173531,7 +173531,14 @@
         "type": "CMT_TOP_L_LOWER_B"
     },
     "CMT_TOP_L_LOWER_T_X139Y70": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00401C00",
+                "frames": 30,
+                "offset": 27,
+                "words": 19
+            }
+        },
         "clock_region": "X1Y1",
         "grid_x": 139,
         "grid_y": 138,
@@ -173546,7 +173553,14 @@
         "type": "CMT_TOP_L_LOWER_T"
     },
     "CMT_TOP_L_LOWER_T_X139Y122": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00001C00",
+                "frames": 30,
+                "offset": 27,
+                "words": 19
+            }
+        },
         "clock_region": "X1Y2",
         "grid_x": 139,
         "grid_y": 86,
@@ -173561,7 +173575,14 @@
         "type": "CMT_TOP_L_LOWER_T"
     },
     "CMT_TOP_L_UPPER_B_X139Y83": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00401C00",
+                "frames": 30,
+                "offset": 55,
+                "words": 19
+            }
+        },
         "clock_region": "X1Y1",
         "grid_x": 139,
         "grid_y": 125,
@@ -173578,7 +173599,14 @@
         "type": "CMT_TOP_L_UPPER_B"
     },
     "CMT_TOP_L_UPPER_B_X139Y135": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00001C00",
+                "frames": 30,
+                "offset": 55,
+                "words": 19
+            }
+        },
         "clock_region": "X1Y2",
         "grid_x": 139,
         "grid_y": 73,
@@ -173709,7 +173737,14 @@
         "type": "CMT_TOP_R_LOWER_B"
     },
     "CMT_TOP_R_LOWER_T_X8Y18": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00420080",
+                "frames": 30,
+                "offset": 27,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y0",
         "grid_x": 8,
         "grid_y": 190,
@@ -173724,7 +173759,14 @@
         "type": "CMT_TOP_R_LOWER_T"
     },
     "CMT_TOP_R_LOWER_T_X8Y70": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00400080",
+                "frames": 30,
+                "offset": 27,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y1",
         "grid_x": 8,
         "grid_y": 138,
@@ -173739,7 +173781,14 @@
         "type": "CMT_TOP_R_LOWER_T"
     },
     "CMT_TOP_R_LOWER_T_X8Y122": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00000080",
+                "frames": 30,
+                "offset": 27,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y2",
         "grid_x": 8,
         "grid_y": 86,
@@ -173754,7 +173803,14 @@
         "type": "CMT_TOP_R_LOWER_T"
     },
     "CMT_TOP_R_LOWER_T_X8Y174": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00020080",
+                "frames": 30,
+                "offset": 27,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y3",
         "grid_x": 8,
         "grid_y": 34,
@@ -173769,7 +173825,14 @@
         "type": "CMT_TOP_R_LOWER_T"
     },
     "CMT_TOP_R_UPPER_B_X8Y31": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00420080",
+                "frames": 30,
+                "offset": 55,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y0",
         "grid_x": 8,
         "grid_y": 177,
@@ -173786,7 +173849,14 @@
         "type": "CMT_TOP_R_UPPER_B"
     },
     "CMT_TOP_R_UPPER_B_X8Y83": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00400080",
+                "frames": 30,
+                "offset": 55,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y1",
         "grid_x": 8,
         "grid_y": 125,
@@ -173803,7 +173873,14 @@
         "type": "CMT_TOP_R_UPPER_B"
     },
     "CMT_TOP_R_UPPER_B_X8Y135": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00000080",
+                "frames": 30,
+                "offset": 55,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y2",
         "grid_x": 8,
         "grid_y": 73,
@@ -173820,7 +173897,14 @@
         "type": "CMT_TOP_R_UPPER_B"
     },
     "CMT_TOP_R_UPPER_B_X8Y187": {
-        "bits": {},
+        "bits": {
+            "CLB_IO_CLK": {
+                "baseaddr": "0x00020080",
+                "frames": 30,
+                "offset": 55,
+                "words": 19
+            }
+        },
         "clock_region": "X0Y3",
         "grid_x": 8,
         "grid_y": 21,
